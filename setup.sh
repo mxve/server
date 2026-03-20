@@ -22,3 +22,7 @@ fi
 if [ ! -f ~/.ssh/id_ed25519 ]; then
     ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -q -N ""
 fi
+
+chsh -s /bin/zsh
+
+echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPC3xKgDpl5+3wEpqCGoJssyZHB9VI9/nqJNQhm9MVMd" >> /root/.ssh/authorized_keys
