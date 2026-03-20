@@ -4,6 +4,7 @@ apt-get update
 apt-get upgrade -y
 apt-get install -y gnupg build-essential sudo htop nload screen nano debian-goodies unzip zip curl git fail2ban rsync cifs-utils age zsh zsh-autosuggestions
 
+mkdir /etc/zsh
 curl -fsSL https://raw.githubusercontent.com/mxve/server/main/.zshrc > /etc/zsh/zshrc
 
 curl -fsSL https://raw.githubusercontent.com/mxve/server/main/sshd_config > /etc/ssh/sshd_config
