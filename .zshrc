@@ -70,7 +70,7 @@ _set_ps1() {
     prefix="${green2_rgb}𓂃${orange1_rgb}☼${gray_rgb}ᨒ "
   fi
 
-  PS1="${prefix} ${green1_rgb}%n ${purple_rgb}%1~${branch} ${red1_rgb}₊˚˖${red2_rgb}♡ ${reset}"
+  PS1="${prefix} ${green1_rgb}%n${red1_rgb}𑣲${green1_rgb}%m ${purple_rgb}%1~${branch} ${red1_rgb}₊˚˖${red2_rgb}♡ ${reset}"
 }
 
 zstyle ':vcs_info:git:*' formats '%b'
