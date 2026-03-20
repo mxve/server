@@ -19,6 +19,6 @@ if [ "$CUR_TIMEZONE" != "Europe/Berlin" ]; then
     dpkg-reconfigure -f noninteractive tzdata
 fi
 
-if [ ! -f ~/.ssh/id_rsa ]; then
-    ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -q -N ""
+if [ ! -f ~/.ssh/id_ed25519 ]; then
+    ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519 -q -N ""
 fi
