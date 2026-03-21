@@ -1,6 +1,6 @@
 # SSH CONFIG; REFERENCE CONFIG https://github.com/ITNerdbox/OS-Hardening/blob/master/sshd_config
 
-Port 22
+Port 83
 AddressFamily inet
 ListenAddress 0.0.0.0
 
