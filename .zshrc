@@ -1,3 +1,5 @@
+setopt NO_BEEP
+
 autoload -Uz vcs_info
 
 orange1_rgb=$'%{\e[38;2;254;191;86m%}'
