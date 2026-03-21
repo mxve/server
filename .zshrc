@@ -94,7 +94,7 @@ autoload -Uz compinit
 compinit
 
 zstyle ':completion:*' auto-description "${pink_rgb}describe: %d${reset}"
-zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' completer _complete _expand
 zstyle ':completion:*' format "${pink_rgb}‹${purple_rgb} %d ${pink_rgb}›${reset}"
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' menu select=2
