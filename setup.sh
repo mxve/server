@@ -7,7 +7,18 @@ apt-get install -y gnupg build-essential sudo htop nload screen nano debian-good
 curl -fsSL https://raw.githubusercontent.com/mxve/server/main/.zshrc > /etc/zsh/zshrc
 
 curl -fsSL https://raw.githubusercontent.com/mxve/server/main/sshd_config > /etc/ssh/sshd_config
-curl -fsSL https://raw.githubusercontent.com/mxve/server/main/issue.net > /etc/issue.net
+
+list=$(curl -fsSL https://raw.githubusercontent.com/mxve/server/main/issue.net/list.txt)
+mkdir -p /opt/issue.net
+echo "$list" | while IFS= read -r issue; do
+  [ -z "$issue" ] && continue
+  echo "downloading $issue..."
+  curl -fsSL "https://raw.githubusercontent.com/mxve/server/main/issue.net/$issue" -o "/opt/issue.net/$issue"
+done
+curl -fsSL https://raw.githubusercontent.com/mxve/server/main/issue.net/rotate.sh > /opt/issue.net/rotate.sh
+chmod +x /opt/issue.net/rotate.sh
+echo "bash /opt/issue.net/rotate.sh" >> /etc/ssh/sshrc
+
 systemctl restart sshd
 
 echo "" > /etc/motd
