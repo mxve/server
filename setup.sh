@@ -8,7 +8,28 @@ AGE_PUBKEY="age1newh0hf8y9jhwkc2e0w30053zhy8u97vl0ly3y6jy5ktgtzfrawqjw0655"
 
 apt-get update
 apt-get upgrade -y
-apt-get install -y gnupg build-essential sudo htop nload screen nano debian-goodies unzip zip curl git fail2ban rsync cifs-utils age zsh zsh-autosuggestions
+apt-get install -y gnupg build-essential sudo htop nload screen nano debian-goodies unzip zip curl git fail2ban rsync cifs-utils age zsh zsh-autosuggestions unattended-upgrades apt-listchanges
+
+# ---------------------------------------------------- #
+# automatic security updates
+
+cat > /etc/apt/apt.conf.d/50unattended-upgrades << 'EOF'
+Unattended-Upgrade::Origins-Pattern {
+    "origin=Debian,codename=${distro_codename},label=Debian-Security";
+};
+Unattended-Upgrade::AutoFixInterruptedDpkg "true";
+Unattended-Upgrade::MinimalSteps "true";
+Unattended-Upgrade::Remove-Unused-Dependencies "true";
+Unattended-Upgrade::Automatic-Reboot "false";
+EOF
+
+cat > /etc/apt/apt.conf.d/20auto-upgrades << 'EOF'
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+APT::Periodic::AutocleanInterval "7";
+EOF
+
+systemctl enable --now unattended-upgrades
 
 # ---------------------------------------------------- #
 # sshd hardening and whimsyfication
