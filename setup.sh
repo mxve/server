@@ -65,6 +65,15 @@ fi
 grep -qxF "$AGE_PUBKEY" ~/.age/trusted 2>/dev/null || echo "$AGE_PUBKEY" >> ~/.age/trusted
 
 # ---------------------------------------------------- #
+# some info
+
+echo "ssh public key:"
+cat ~/.ssh/id_ed25519.pub
+echo "----------------------------------------------------"
+echo "age public key:"
+cat ~/.age/id.pub
+
+# ---------------------------------------------------- #
 # setup zsh and switch shell
 
 curl -fsSL https://raw.githubusercontent.com/mxve/server/main/.zshrc > /etc/zsh/zshrc
