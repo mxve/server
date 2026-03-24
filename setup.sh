@@ -8,7 +8,7 @@ AGE_PUBKEY="age1newh0hf8y9jhwkc2e0w30053zhy8u97vl0ly3y6jy5ktgtzfrawqjw0655"
 
 apt-get update
 apt-get upgrade -y
-apt-get install -y gnupg build-essential sudo htop nload screen nano debian-goodies unzip zip curl git fail2ban rsync cifs-utils age zsh zsh-autosuggestions unattended-upgrades apt-listchanges tar pigz b3sum sed findutils coreutils
+apt-get install -y gnupg build-essential sudo htop nload screen nano debian-goodies unzip zip curl git fail2ban rsync cifs-utils age zsh zsh-autosuggestions unattended-upgrades apt-listchanges tar pigz b3sum sed findutils coreutils sqlite3
 
 # ---------------------------------------------------- #
 # automatic security updates
