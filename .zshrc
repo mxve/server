@@ -40,6 +40,7 @@ fi
 
 alias ls='ls --color=auto -A'
 alias grep='grep --color=auto'
+alias compose='docker compose'
 
 export TERM=xterm-256color
 
