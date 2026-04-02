@@ -51,6 +51,16 @@ echo "" > /etc/motd
 systemctl restart sshd
 
 # ---------------------------------------------------- #
+# rust!!
+
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+. "$HOME/.cargo/env"
+
+# ---------------------------------------------------- #
+# cargo deez
+cargo install s3up
+
+# ---------------------------------------------------- #
 # timezone
 
 timedatectl set-timezone "Europe/Berlin"
@@ -87,16 +97,17 @@ grep -qxF "$AGE_PUBKEY" ~/.age/trusted 2>/dev/null || echo "$AGE_PUBKEY" >> ~/.a
 
 # ---------------------------------------------------- #
 # some info
-
+echo ""
+echo "----------------------------------------------------"
 echo "ssh public key:"
 cat ~/.ssh/id_ed25519.pub
 echo "----------------------------------------------------"
 echo "age public key:"
 cat ~/.age/id.pub
+echo "----------------------------------------------------"
 
 # ---------------------------------------------------- #
 # setup zsh and switch shell
 
 curl -fsSL https://raw.githubusercontent.com/mxve/server/main/.zshrc > /etc/zsh/zshrc
 chsh -s /bin/zsh
-zsh && exit
